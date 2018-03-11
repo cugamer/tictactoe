@@ -1,4 +1,4 @@
-var checkWinner = require('../../lib/jasmine_examples/CheckWinner.js')
+var checkWinner = require('../../lib/CheckWinner.js')
 
 describe('flattenArray function', function() {
   it('should return the correct 1d array from a 2d array', function() {
@@ -14,40 +14,40 @@ describe('flattenArray function', function() {
   // }));
 });
 
-describe('check_winning_board function', function() {
+describe('checkWinningBoard function', function() {
   it('should throw an error if given an array which does not contain a perfect square number of elements', function() {
-    expect(function() { checkWinner.check_winning_board([[[1, 2, 3]], [[4, 5]]]); } ).toThrow(new Error("Input array total number of elements must be a perfect square"));
+    expect(function() { checkWinner.checkWinningBoard([[[1, 2, 3]], [[4, 5]]]); } ).toThrow(new Error("Input array total number of elements must be a perfect square"));
   });
 
   it('should return true for a row', function() {
-    expect(checkWinner.check_winning_board(['x', 'x', 'x', '-', '-', '-', '-', '-', '-'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board(['-', '-', '-', '-', '-', '-', 'x', 'x', 'x'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board(['x', 'x', 'x', 'x', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board(['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', 'x', 'x', 'x', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard(['x', 'x', 'x', '-', '-', '-', '-', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard(['-', '-', '-', '-', '-', '-', 'x', 'x', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard(['x', 'x', 'x', 'x', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard(['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', 'x', 'x', 'x', 'x'], 'x')).toBe(true);
   });
 
   it('should return true for a column', function() {
-    expect(checkWinner.check_winning_board( ['x', '-', '-', 'x', '-', '-', 'x', '-', '-'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['-', '-', 'x', '-', '-', 'x', '-', '-', 'x'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', 'x', '-', '-', 'x', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['-', '-', 'x', '-', '-', 'x', '-', '-', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'x')).toBe(true);
   });
 
   it('should return true for a diagonal', function() {
-    expect(checkWinner.check_winning_board( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['-', '-', 'x', '-', 'x', '-', 'x', '-', '-'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['x', '-', '-', '-', '-', 'x', '-', '-', '-', '-', 'x', '-', '-', '-', '-', 'x'], 'x')).toBe(true);
-    expect(checkWinner.check_winning_board( ['-', '-', '-', 'x', '-', '-', 'x', '-', '-', 'x', '-', '-', 'x', '-', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['-', '-', 'x', '-', 'x', '-', 'x', '-', '-'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', '-', '-', 'x', '-', '-', '-', '-', 'x', '-', '-', '-', '-', 'x'], 'x')).toBe(true);
+    expect(checkWinner.checkWinningBoard( ['-', '-', '-', 'x', '-', '-', 'x', '-', '-', 'x', '-', '-', 'x', '-', '-', '-'], 'x')).toBe(true);
   });
 
   it('should return false when no row, column or diagonal', function() {
-    expect(checkWinner.check_winning_board( ['x', '-', '-', '-', '-', '-', 'x', '-', '-'], 'x')).toBe(false);
-    expect(checkWinner.check_winning_board( ['-', '-', '-', '-', '-', '-', '-', '-', '-'], 'x')).toBe(false);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', '-', '-', '-', 'x', '-', '-'], 'x')).toBe(false);
+    expect(checkWinner.checkWinningBoard( ['-', '-', '-', '-', '-', '-', '-', '-', '-'], 'x')).toBe(false);
   });
 
   it('should return false when winning pattern is present for different target value', function() {
-    expect(checkWinner.check_winning_board(['x', 'x', 'x', '-', '-', '-', '-', '-', '-'], 'y')).toBe(false);
-    expect(checkWinner.check_winning_board( ['x', '-', '-', 'x', '-', '-', 'x', '-', '-'], 'y')).toBe(false);
-    expect(checkWinner.check_winning_board( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'y')).toBe(false);
+    expect(checkWinner.checkWinningBoard( ['x', 'x', 'x', '-', '-', '-', '-', '-', '-'], 'y')).toBe(false);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', 'x', '-', '-', 'x', '-', '-'], 'y')).toBe(false);
+    expect(checkWinner.checkWinningBoard( ['x', '-', '-', '-', 'x', '-', '-', '-', 'x'], 'y')).toBe(false);
   })
 })
