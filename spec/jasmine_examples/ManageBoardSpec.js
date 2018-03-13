@@ -1,6 +1,6 @@
 let manageBoard = require('../../lib/ManageBoard.js')
 
-describe('getScore function', function() {
+describe('getScore function', () => {
   it('should return "10" from a board where the player has a winning layout', () => {
     expect(manageBoard.getScore(['x', 'x', 'x', '3', '4', '5', '6', '7', '8'], 'x', 'y')).toEqual(10);
   });
@@ -12,7 +12,7 @@ describe('getScore function', function() {
   });
 });
 
-describe('getFreeIndexes function', function() {
+describe('getFreeIndexes function', () => {
   it('should return array of indexes of free spaces from a given board', () => {
     expect(manageBoard.getFreeIndexes(['y', 'x', 'y', 'y', '4', '5', 'x', 'x', '8'], ['x', 'y'])).toEqual([4, 5, 8]);
   });
